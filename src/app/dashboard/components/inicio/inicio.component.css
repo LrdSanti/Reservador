@@ -1,0 +1,21 @@
+.container {
+  padding: 20px; /* Agrega un espacio en el contenedor principal */
+}
+
+.header {
+  background-color: #e4e4e4; /* Color de fondo del encabezado */
+  color: #fff; /* Color de texto del encabezado */
+  padding: 20px; /* Espacio interno del encabezado */
+  border-radius: 5px; /* Bordes redondeados para el encabezado */
+}
+
+.head {
+  font-size: 24px; /* Tamaño de fuente para el encabezado dentro del encabezado */
+}
+
+.contenedor-router {
+  padding: 20px; /* Espacio interno para el contenedor del enrutador */
+  border: 1px solid #e6e6e6; /* Borde del contenedor del enrutador */
+  border-radius: 5px; /* Bordes redondeados para el contenedor del enrutador */
+  margin-top: 10px;
+}

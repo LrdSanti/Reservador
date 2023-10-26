@@ -1,0 +1,119 @@
+<div class="container">
+    <p-toast></p-toast>
+  <div class="menu">
+    <h2 style="text-align: center; margin: 20px 0">Listado de Reservas</h2>
+    <button class="btn btn-success" (click)="showDialogReservas()">
+      Realizar Nueva Reserva
+    </button>
+  </div>
+  <table
+    class="table"
+    style="width: 100%; border-collapse: collapse; margin-top: 20px"
+  >
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Email</th>
+        <th>Tipo de Cliente</th>
+        <th>Fecha de Llegada</th>
+        <th>Fecha de Salida</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let reserva of reservas" style="text-align: center">
+        <td>{{ reserva.id }}</td>
+        <td>{{ reserva.nombre }}</td>
+        <td>{{ reserva.apellidos }}</td>
+        <td>{{ reserva.email }}</td>
+        <td>{{ reserva.tipoCliente }}</td>
+        <td>{{ reserva.fechaLlegada | date : "dd/MM/yyyy" }}</td>
+        <td>{{ reserva.fechaSalida | date : "dd/MM/yyyy" }}</td>
+        <td>
+          <div class="acciones">
+            <a href="dashboard/inicio/reservador/actualizarReserva/{{reserva.id}}">
+
+                <button class="btn btn-warning">
+                  Actualizar
+                </button>
+            </a>
+            <button (click)="eliminarReserva(reserva)" class="btn btn-danger">
+              Eliminar
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p-dialog
+  header="Header"
+  [(visible)]="visible"
+  [modal]="true"
+  [style]="{ width: '50vw' }"
+  [draggable]="false"
+  [resizable]="false"
+>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Registrar Nueva Reserva</h4>
+  </div>
+  <div class="modal-body">
+    <!-- Formulario de registro de reserva -->
+    <form>
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nombre"
+          [(ngModel)]="nuevaReserva.nombre"
+          name="nombre"
+        />
+      </div>
+      <div class="form-group">
+        <label for="apellidos">Apellidos</label>
+        <input
+          type="text"
+          class="form-control"
+          id="apellidos"
+          [(ngModel)]="nuevaReserva.apellidos"
+          name="apellidos"
+        />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="text"
+          class="form-control"
+          id="email"
+          [(ngModel)]="nuevaReserva.email"
+          name="email"
+        />
+      </div>
+      <div class="form-group">
+        <label for="tipoCliente">Tipo de Cliente</label>
+        <select
+          class="form-control"
+          id="tipoCliente"
+          [(ngModel)]="nuevaReserva.tipoCliente"
+          name="tipoCliente"
+        >
+          <option value="Socio">Socio</option>
+          <option value="No Socio">No Socio</option>
+          <option value="Vip">VIP</option>
+        </select>
+      </div>
+
+      <!-- Agrega más campos según tus necesidades -->
+    </form>
+  </div>
+  <br />
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="guardarReserva()">
+      Guardar Reserva
+    </button>
+  </div>
+</p-dialog>

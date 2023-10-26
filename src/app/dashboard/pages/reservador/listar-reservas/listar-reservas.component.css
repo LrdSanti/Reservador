@@ -1,0 +1,11 @@
+.menu{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.acciones{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
