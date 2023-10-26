@@ -5,6 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './actualizar-reserva.component.html',
   styleUrls: ['./actualizar-reserva.component.css']
 })
-export class ActualizarReservaComponent {
+export class ActualizarReservaComponent  {
 
 }
